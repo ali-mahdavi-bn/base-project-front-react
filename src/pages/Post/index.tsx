@@ -1,18 +1,18 @@
 import type { ProColumns } from '@ant-design/pro-components';
 import { PageContainer, ProTable } from '@ant-design/pro-components';
 import React from 'react';
-import { useIntl } from 'umi';
+import { useIntl, useParams } from 'umi';
 import { Descriptions, Tag } from 'antd';
 import { fetchLogger } from '@/services/system/logger';
 
-const Logger: React.FC = () => {
+const Post: React.FC = () => {
   const intl = useIntl();
   const levelColor = {
     info: 'blue',
     warn: 'orange',
     error: 'red',
   };
-
+  const { id } = useParams<{ id: string }>();
   const columns: ProColumns<API.Logger>[] = [
     {
       title: intl.formatMessage({ id: 'pages.system.logger.form.level' }),
@@ -73,6 +73,15 @@ const Logger: React.FC = () => {
 
   return (
     <PageContainer>
+      <h1>{id}</h1>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <ProTable<API.Logger, API.PaginationParam>
         columns={columns}
         request={fetchLogger}
@@ -125,4 +134,4 @@ const Logger: React.FC = () => {
   );
 };
 
-export default Logger;
+export default Post;

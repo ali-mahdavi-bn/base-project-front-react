@@ -50,7 +50,7 @@ export default {
   'pages.system.menu.resource.form.method': '请求方法',
   'pages.system.menu.resource.form.method.placeholder': '请选择请求方法',
   'pages.system.menu.resource.form.path': '请求路径',
-  'pages.system.menu.resource.form.path.placeholder': '请输入请求路径 (示例：/api/v1/users/:id)',
+  'pages.system.menu.resource.form.path.placeholder': '请输入请求路径 (示例：/api/v1/admin/users/:id)',
   // role
   'pages.system.role.add': '添加角色',
   'pages.system.role.edit': '编辑角色',

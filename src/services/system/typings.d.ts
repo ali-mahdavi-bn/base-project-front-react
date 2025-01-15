@@ -76,7 +76,7 @@ declare namespace API {
     menu_id?: string;
     /** HTTP method */
     method?: string;
-    /** API request path (e.g. /api/v1/users/:id) */
+    /** API request path (e.g. /api/v1/admin/users/:id) */
     path?: string;
     /** Update time */
     updated_at?: string;

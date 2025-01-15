@@ -2,9 +2,9 @@
 /* eslint-disable */
 import { request } from 'umi';
 
-/** Query role list GET /api/v1/roles */
+/** Query role list GET /api/v1/admin/roles */
 export async function fetchRole(params: API.PaginationParam, options?: { [key: string]: any }) {
-  return request<API.ResponseResult<API.Role[]>>('/api/v1/roles', {
+  return request<API.ResponseResult<API.Role[]>>('/api/v1/admin/roles', {
     method: 'GET',
     params: {
       current: '1',
@@ -15,35 +15,35 @@ export async function fetchRole(params: API.PaginationParam, options?: { [key: s
   });
 }
 
-/** Create role record POST /api/v1/roles */
+/** Create role record POST /api/v1/admin/roles */
 export async function addRole(body: API.Role, options?: { [key: string]: any }) {
-  return request<API.ResponseResult<API.Role>>('/api/v1/roles', {
+  return request<API.ResponseResult<API.Role>>('/api/v1/admin/roles', {
     method: 'POST',
     data: body,
     ...(options || {}),
   });
 }
 
-/** Get role record by ID GET /api/v1/roles/${id} */
+/** Get role record by ID GET /api/v1/admin/roles/${id} */
 export async function getRole(id: string, options?: { [key: string]: any }) {
-  return request<API.ResponseResult<API.Role>>(`/api/v1/roles/${id}`, {
+  return request<API.ResponseResult<API.Role>>(`/api/v1/admin/roles/${id}`, {
     method: 'GET',
     ...(options || {}),
   });
 }
 
-/** Update role record by ID PUT /api/v1/roles/${id} */
+/** Update role record by ID PUT /api/v1/admin/roles/${id} */
 export async function updateRole(id: string, body: API.Role, options?: { [key: string]: any }) {
-  return request<API.ResponseResult<any>>(`/api/v1/roles/${id}`, {
+  return request<API.ResponseResult<any>>(`/api/v1/admin/roles/${id}`, {
     method: 'PUT',
     data: body,
     ...(options || {}),
   });
 }
 
-/** Delete role record by ID DELETE /api/v1/roles/${id} */
+/** Delete role record by ID DELETE /api/v1/admin/roles/${id} */
 export async function delRole(id: string, options?: { [key: string]: any }) {
-  return request<API.ResponseResult<any>>(`/api/v1/roles/${id}`, {
+  return request<API.ResponseResult<any>>(`/api/v1/admin/roles/${id}`, {
     method: 'DELETE',
     ...(options || {}),
   });

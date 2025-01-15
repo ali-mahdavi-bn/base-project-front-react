@@ -28,7 +28,7 @@ const Welcome: React.FC = () => {
           banner
           style={{
             margin: -12,
-            // marginBottom: 24,
+            marginBottom: 24,
           }}
         />
         <Typography.Title style={titleStyle}>

@@ -21,7 +21,6 @@ const MenuTree: React.FC<MenuTreeProps> = (props: MenuTreeProps) => {
       }
     });
   }, []);
-
   useEffect(() => {
     if (props.value) {
       setCheckedKeys(props.value.map((item) => item.menu_id!));

@@ -63,3 +63,66 @@ export function convertTreeData<T>(
   });
   return treeData;
 }
+
+
+/**
+ * Returns Device Type tablet , mobile, desktop
+ * @returns string
+ */
+export const getDeviceType = (): string => {
+  const ua = typeof window !== "undefined" ? navigator.userAgent : 'desktop';
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+    return "tablet";
+  }
+  if (
+    /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+      ua
+    )
+  ) {
+    return "mobile";
+  }
+  return "desktop";
+};
+
+/**
+ * Returns true if desktop
+ * @returns boolean
+ */
+export const isDesktopDevice = (): boolean => {
+  if (getDeviceType() === "desktop") {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+/**
+ * Returns true if mobile
+ * @returns boolean
+ */
+export const isMobileDevice = (): boolean => {
+  if (getDeviceType() === "mobile") {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+/**
+ * Add no scroll class to body when modal isopen
+ */
+export const addBodyNoScroll = (): void => {
+  document.body.classList.add("no-scroll");
+};
+
+/**
+ * Removes no scroll class to body when modal isopen
+ */
+export const removeBodyNoScroll = (): void => {
+  document.body.classList.remove("no-scroll");
+};
+
+export const combineClasses = function (...classes: any): string {
+  return classes.join(" ");
+};
+

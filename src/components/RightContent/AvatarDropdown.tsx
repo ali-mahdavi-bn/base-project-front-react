@@ -1,12 +1,12 @@
 import { logout } from '@/services/system/login';
 import { Auth } from '@/utils';
-import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import { LoginOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Menu, Spin } from 'antd';
 import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import { stringify } from 'querystring';
 import type { MenuInfo } from 'rc-menu/lib/interface';
 import React, { useCallback } from 'react';
-import { history, useModel, useIntl } from 'umi';
+import { history, Link, useIntl, useModel } from 'umi';
 import HeaderDropdown from '../HeaderDropdown';
 import styles from './index.less';
 
@@ -70,12 +70,11 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
     return loading;
   }
 
-  const { currentUser } = initialState;
-
-  if (!currentUser || !currentUser.username) {
-    return loading;
-  }
-
+  const { currentUser, isLogin } = initialState;
+  // if (!currentUser || !currentUser.username) {
+  //   return loading;
+  // }
+  // console.log("currentUser => ", currentUser, currentUser.username);
   const menuItems: ItemType[] = [
     ...(menu
       ? [
@@ -107,16 +106,24 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
   );
 
   return (
-    <HeaderDropdown overlay={menuHeaderDropdown}>
-      <span className={`${styles.action} ${styles.account}`}>
-        <Avatar
-          size="small"
-          style={{ backgroundColor: '#ffbf00', marginRight: 8 }}
-          icon={<UserOutlined />}
-        />
-        <span className={`${styles.name} anticon`}>{currentUser.name}</span>
-      </span>
-    </HeaderDropdown>
+    <div>
+      {isLogin && currentUser ? (
+        <HeaderDropdown overlay={menuHeaderDropdown}>
+          <span className={`${styles.action} ${styles.account}`}>
+            <Avatar
+              size="small"
+              style={{ backgroundColor: '#ffbf00', marginRight: 8 }}
+              icon={<UserOutlined />}
+            />
+            <span className={`${styles.name} anticon`}>{currentUser.name}</span>
+          </span>
+        </HeaderDropdown>
+      ) : (
+        <Link to="/user/login">
+          <LoginOutlined />
+        </Link>
+      )}
+    </div>
   );
 };
 

@@ -52,7 +52,7 @@ export default {
   'pages.system.menu.resource.form.method.placeholder': 'Please select the request method',
   'pages.system.menu.resource.form.path': 'Path',
   'pages.system.menu.resource.form.path.placeholder':
-    'Please enter the request path (example: /api/v1/users/:id)',
+    'Please enter the request path (example: /api/v1/admin/users/:id)',
   // role
   'pages.system.role.add': 'Add Role',
   'pages.system.role.edit': 'Edit Role',

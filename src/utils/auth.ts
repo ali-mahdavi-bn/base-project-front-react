@@ -49,3 +49,24 @@ export function removeToken() {
   sessionStorage.removeItem(tokenTypeKey);
   sessionStorage.removeItem(expiresAtKey);
 }
+
+
+
+export class Auth {
+  static getToken() {
+    return localStorage.getItem('token'); // یا هر جایی که توکن ذخیره شده است
+  }
+
+  static getTokenType() {
+    return 'Bearer'; // نوع توکن
+  }
+
+  static isTokenValid() {
+    const token = this.getToken();
+    if (!token) return false;
+
+    const payload = JSON.parse(atob(token.split('.')[1])); // استخراج اطلاعات از JWT
+    const currentTime = Math.floor(Date.now() / 1000);
+    return payload.exp > currentTime; // بررسی زمان انقضای توکن
+  }
+}
